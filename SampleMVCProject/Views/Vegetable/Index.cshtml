@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SampleMVCProject.Models.Vegetable>
+
+<div class="container">
+
+    @Html.ActionLink("Create ", "Create")
+    <table class="table">
+        <tr>
+            <th scope="col"> ID</th>
+            <th scope="col"> Name</th>
+            <th scope="col"> IsAvailable</th>
+            <th scope="col"> Image</th>
+            <th scope="col"> Season</th>
+            <th scope="col"> Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Name</td>
+                <td>@item.IsAvailable</td>
+                <td><img src="@item.Image" alt="Not Found" height="50" width="50" /></td>
+                <td>@item.Season.ID</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { item.ID })
+                    @Html.ActionLink("Delete", "Delete", new { item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+ </div>

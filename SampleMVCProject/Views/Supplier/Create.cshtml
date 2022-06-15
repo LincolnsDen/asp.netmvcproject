@@ -1,0 +1,21 @@
+﻿@model IEnumerable<SampleMVCProject.Models.Fruit>
+
+<div class="container">
+
+    <form action="Create" method="post" enctype="multipart/form-data">
+        ID : <input type="text" name="ID" value="" /> <br /> <br />
+        Name : <input type="text" name="Name" value="" /> <br /> <br />
+
+        FruitID : <select name="FruitID">
+            @foreach (var item in Model)
+            {
+                <option value="@item.ID">@item.Name</option>
+            }
+        </select>
+
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+</div>

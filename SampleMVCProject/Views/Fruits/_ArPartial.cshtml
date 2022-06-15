@@ -1,0 +1,21 @@
+﻿@model IEnumerable<SampleMVCProject.Models.Fruit>
+
+<div class="container">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+            <td>@item.IsNew</td>
+            <td>@item.PurchaseDate</td>
+            <td><img src="@item.Image" alt="Not Found" height="50" width="50" /></td>
+            <td>@item.Season.ID</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { item.ID })
+                @Html.ActionLink("Delete", "Delete", new { item.ID })
+            </td>
+        </tr>
+    }
+
+</div>

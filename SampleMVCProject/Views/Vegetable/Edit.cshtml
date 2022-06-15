@@ -1,0 +1,27 @@
+﻿@model SampleMVCProject.Models.Vegetable
+
+<div class="container">
+<form action="Edit" method="post" enctype="multipart/form-data">
+    ID : <input type="text" name="Id" value="@Model.ID" /> <br /> <br />
+    Name : <input type="text" name="Name" value="@Model.Name" /> <br /> <br />
+    IsNew : @if (Model.IsAvailable)
+    {
+        <input type="checkbox" name="IsAvailable" value="true" checked /> <br /> <br />
+    }
+    else
+    {
+        <input type="checkbox" name="IsAvailable" value="true" /> <br /> <br />
+    }
+    Image : <input type="file" name="Image" value="" /> <br /> <br />
+    SeasonID : <select name="SeasonID">
+        @foreach (var item in ViewBag.season)
+        {
+            <option value="@item.ID">@item.Name</option>
+        }
+    </select>
+
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+</div>

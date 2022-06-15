@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SampleMVCProject.Models.Season>
+
+
+
+<div class="container">
+    @if (ViewBag.er != null)
+    {
+        <ol>
+            @foreach (var item in ViewBag.er)
+            {
+                <li>@item</li>
+            }
+
+        </ol>
+    }
+
+    <form action="Create" method="post" enctype="multipart/form-data">
+        ID : <input type="text" name="ID" value="" /> <br />
+        Name : <input type="text" name="Name" value="" /> <br />
+        IsNew : <input type="checkbox" name="IsNew" value="true" /> <br />
+        PurchaseDate : <input type="date" name="PurchaseDate" value="" /> <br />
+        Image : <input type="file" name="Image" value="" /> <br />
+        Season : <select name="SeasonID">
+            @foreach (var item in Model)
+            {
+                <option value="@item.ID">@item.Name</option>
+            }
+        </select>
+
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+

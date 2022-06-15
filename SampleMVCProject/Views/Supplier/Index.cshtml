@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SampleMVCProject.Models.FruitSupplier>
+
+
+<div class="container">
+
+
+    @using (Ajax.BeginForm("Create", new AjaxOptions { OnSuccess = "oK", OnFailure = "sorry", HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "tbody" }))
+    {
+        <text>ID:</text><input type="text" name="ID" value="" /> <br /> <br />
+        <text>Name:</text> <input type="text" name="Name" value="" /> <br /> <br />
+
+        <text> Fruit Name:</text> <select name="FruitID">
+            @foreach (var item in ViewBag.fruits)
+            {
+                <option value="@item.ID">@item.Name</option>
+            }
+        </select>
+
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    }
+
+  
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"> ID</th>
+                <th scope="col"> Name</th>
+                <th scope="col"> Fruit</th>
+                <th scope="col"> Action</th>
+
+            </tr>
+        </thead>
+
+
+        <tbody id="tbody">
+            @Html.Partial("_supplierList", Model)
+        </tbody>
+
+
+
+    </table>
+</div>

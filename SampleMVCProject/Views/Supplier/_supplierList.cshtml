@@ -1,0 +1,13 @@
+﻿
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.ID</td>
+        <td>@item.Name</td>
+        <td>@item.FruitID</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { item.ID })
+            @Html.ActionLink("Delete", "Delete", new { item.ID })
+        </td>
+    </tr>
+}

@@ -1,0 +1,28 @@
+﻿@model SampleMVCProject.Models.Fruit
+
+<div class="container">
+    <form action="Edit" method="post" enctype="multipart/form-data">
+        ID : <input type="text" name="Id" value="@Model.ID" /> <br />
+        Name : <input type="text" name="Name" value="@Model.Name" /> <br />
+        IsNew : @if (Model.IsNew)
+        {
+            <input type="checkbox" name="IsNew" value="true" checked /> <br />
+        }
+        else
+        {
+            <input type="checkbox" name="IsNew" value="true" /> <br />
+        }
+        PurchaseDate : <input type="date" name="PurchaseDate" value="" /> <br />
+        Image : <input type="file" name="Image" value="" /> <br />
+        SeasonID : <select name="SeasonID">
+            @foreach (var item in ViewBag.season)
+            {
+                <option value="@item.ID">@item.Name</option>
+            }
+        </select>
+
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Update</button>   
+    </form>
+</div>

@@ -1,0 +1,20 @@
+﻿@model SampleMVCProject.Models.FruitSupplier
+
+
+<div class="container">
+    <form action="Edit" method="post" enctype="multipart/form-data">
+        ID : <input type="text" name="Id" value="@Model.ID" /> <br /> <br />
+        Name : <input type="text" name="Name" value="@Model.Name" /> <br /> <br />
+
+        FruitID : <select name="FruitID">
+            @foreach (var item in ViewBag.fruit)
+            {
+                <option value="@item.ID">@item.Name</option>
+            }
+        </select>
+
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
